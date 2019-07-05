@@ -65,28 +65,28 @@ int main(int argc, char *argv[])
         MPI_Abort(MPI_COMM_WORLD, 0);
 
     } else {
-            long long y[5], q, CH_LEN_POT[TAM_MAX+1], QTD_POSSIBILIDADES;
+            long long i[5], k, CH_LEN_POT[TAM_MAX+1], QTD_POSSIBILIDADES;
 
             for ( TAM_SENHA = 1; !achou && TAM_SENHA <= TAM_MAX; ++TAM_SENHA )
             {
                 QTD_POSSIBILIDADES = (long long)pow( CH_LEN, TAM_SENHA);
                 
                 // Define os valores para calculos de indices necessarios o tamanho atual de senha
-                for ( q = 1; q <= TAM_MAX; q++ )
-                    CH_LEN_POT[q] = (long)pow(CH_LEN, TAM_SENHA-q);
+                for ( k = 1; k <= TAM_MAX; k++ )
+                    CH_LEN_POT[k] = (long)pow(CH_LEN, TAM_SENHA-k);
 
                 // Analisa todas as possibilidades
-                for ( long long i = rank-1; i < QTD_POSSIBILIDADES ; i += size-1)
+                for ( long long p = rank-1; p < QTD_POSSIBILIDADES ; p += size-1)
                 {
                     // Define apenas os indices necessarios para o tamanho da senha calculada
-                    y[0] = i;
-                    for ( q = 1 ; q < TAM_SENHA; ++q )
-                        y[q] = y[q-1] % CH_LEN_POT[q];
+                    i[0] = p;
+                    for ( k = 1 ; k < TAM_SENHA; ++k )
+                        i[k] = i[k-1] % CH_LEN_POT[k];
 
                     // Forma a palavra
-                    for ( q = 0 ; q < TAM_SENHA; ++q )
-                        senha[q] = caracteres[y[q] / CH_LEN_POT[q+1]];    
-                    senha[q] = '\0';
+                    for ( k = 0 ; k < TAM_SENHA; ++k )
+                        senha[k] = caracteres[i[k] / CH_LEN_POT[k+1]];    
+                    senha[k] = '\0';
 
 
                     if ( !strcmp( sha1(senha).c_str(), pwd_decrypt) )
