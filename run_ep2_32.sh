@@ -19,6 +19,6 @@ for s in $senhas
 do
 	for (( i = 0; i < 3; i++ )) 
 	do
-		mpirun -np 32  --oversubscribe ./sha1  $s >> saida32.txt
+		mpirun -np 32 ./sha1  $s >> saida32.txt
 	done
 done

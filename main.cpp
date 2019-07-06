@@ -9,16 +9,9 @@ using namespace std;
 #define ROOT 0
 #define TAG 0
 
-double MyClock() {
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    return (tv.tv_sec * 1000000) + tv.tv_usec;
-}
-
-
 int main(int argc, char *argv[])
 {
-    double inicio = MyClock();
+    double inicio = MPI_Wtime();
     
     if ( argc != 2 )
     {
@@ -26,7 +19,6 @@ int main(int argc, char *argv[])
         exit(-1);
     }
 
-    /* code */
     char caracteres[] = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", pwd_decrypt[80], senha[TAM_MAX+1];
     // char caracteres[] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789", pwd_decrypt[255];
     strcpy(pwd_decrypt,argv[1]);
@@ -44,7 +36,6 @@ int main(int argc, char *argv[])
 
     if ( rank == ROOT )
     {
-
         // Aguarda mensagem de qualquer processo (o que achar primeiro)
         MPI_Irecv(&senha, TAM_MAX, MPI_CHAR, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &requisicao_msg);
 
@@ -54,11 +45,11 @@ int main(int argc, char *argv[])
 
         printf("Processo : %d ==: senha %s \n", stats.MPI_SOURCE, senha);
 
-        const double tempoSeq = (MyClock()-inicio)/CLOCKS_PER_SEC;
+        const double tempoSeq = MPI_Wtime()-inicio;
         cout << fixed << setprecision(25);
         // cout << "  Valor esperado: " << M_PI << endl;
         // cout << "   Erro Relativo: " << fabs(x - M_PI)/M_PI << endl;
-        printf("     Tempo total: %.5lf\n", tempoSeq);
+        printf("     Tempo total: %.10lf\n", tempoSeq);
         // cout << "   SpeedUp: " << 90.4/tempoSeq << endl;
         // cout << "   Eficiencia: " << 100*(90.4/tempoSeq)/16 << endl;
 
