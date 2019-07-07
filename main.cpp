@@ -18,7 +18,10 @@ int main(int argc, char *argv[])
         exit(-1);
     }
 
+    // Caso 1
     // char caracteres[] = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", pwd_decrypt[80], senha[TAM_MAX+1];
+    
+    // Caso 2
     char caracteres[] = " qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789", pwd_decrypt[80], senha[TAM_MAX+1];
     strcpy(pwd_decrypt,argv[1]);
     
