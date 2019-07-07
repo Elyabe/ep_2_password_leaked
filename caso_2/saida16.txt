@@ -1,0 +1,36 @@
+Processo : 1 ==: senha 7 
+     Tempo total: 1.0320100784
+Processo : 1 ==: senha 7 
+     Tempo total: 1.0351188183
+Processo : 1 ==: senha 7 
+     Tempo total: 1.0382480621
+Processo : 8 ==: senha 12345 
+     Tempo total: 383.3201341629
+Processo : 8 ==: senha 12345 
+     Tempo total: 397.1410310268
+Processo : 8 ==: senha 12345 
+     Tempo total: 387.4053871632
+Processo : 4 ==: senha A1B2C 
+     Tempo total: 268.3318929672
+Processo : 4 ==: senha A1B2C 
+     Tempo total: 266.4603588581
+Processo : 4 ==: senha A1B2C 
+     Tempo total: 265.6065089703
+Processo : 8 ==: senha 123ZZ 
+     Tempo total: 380.7150669098
+Processo : 8 ==: senha 123ZZ 
+     Tempo total: 380.8893570900
+Processo : 8 ==: senha 123ZZ 
+     Tempo total: 385.1906769276
+Processo : 13 ==: senha DCEL 
+     Tempo total: 5.3970270157
+Processo : 13 ==: senha DCEL 
+     Tempo total: 5.3341059685
+Processo : 13 ==: senha DCEL 
+     Tempo total: 5.5235939026
+Processo : 3 ==: senha 99999 
+     Tempo total: 434.9872350693
+Processo : 3 ==: senha 99999 
+     Tempo total: 441.1168308258
+Processo : 3 ==: senha 99999 
+     Tempo total: 432.9217088223

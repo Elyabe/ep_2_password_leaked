@@ -1,11 +1,10 @@
 #include<bits/stdc++.h> 
 #include "sha1.h"
 #include<mpi.h>
-#include<sys/time.h>
 
 using namespace std; 
 
-#define TAM_MAX 5
+#define TAM_MAX 6
 #define ROOT 0
 #define TAG 0
 
@@ -19,8 +18,8 @@ int main(int argc, char *argv[])
         exit(-1);
     }
 
-    char caracteres[] = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", pwd_decrypt[80], senha[TAM_MAX+1];
-    // char caracteres[] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789", pwd_decrypt[255];
+    // char caracteres[] = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", pwd_decrypt[80], senha[TAM_MAX+1];
+    char caracteres[] = " qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789", pwd_decrypt[80], senha[TAM_MAX+1];
     strcpy(pwd_decrypt,argv[1]);
     
     const long CH_LEN = strlen(caracteres);
@@ -56,7 +55,7 @@ int main(int argc, char *argv[])
         MPI_Abort(MPI_COMM_WORLD, 0);
 
     } else {
-            long long i[5], k, CH_LEN_POT[TAM_MAX+1], QTD_POSSIBILIDADES;
+            long long i[5], k, p, CH_LEN_POT[TAM_MAX+1], QTD_POSSIBILIDADES;
 
             for ( TAM_SENHA = 1; !achou && TAM_SENHA <= TAM_MAX; ++TAM_SENHA )
             {
@@ -67,7 +66,7 @@ int main(int argc, char *argv[])
                     CH_LEN_POT[k] = (long)pow(CH_LEN, TAM_SENHA-k);
 
                 // Analisa todas as possibilidades
-                for ( long long p = rank-1; p < QTD_POSSIBILIDADES ; p += size-1)
+                for ( p = rank-1; p < QTD_POSSIBILIDADES ; p += size-1)
                 {
                     // Define apenas os indices necessarios para o tamanho da senha calculada
                     i[0] = p;
