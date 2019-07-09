@@ -1,0 +1,12 @@
+Processo : 30 ==: senha 7 
+     Tempo total: 1.0531520844
+Processo : 30 ==: senha 7 
+     Tempo total: 1.0567359924
+Processo : 30 ==: senha 7 
+     Tempo total: 1.0556828976
+Processo : 12 ==: senha CEUNES 
+     Tempo total: 10156.4941470623
+Processo : 12 ==: senha CEUNES 
+     Tempo total: 9931.8354520798
+Processo : 12 ==: senha CEUNES 
+     Tempo total: 10074.1038639545
