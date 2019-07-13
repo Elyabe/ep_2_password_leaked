@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
         MPI_Abort(MPI_COMM_WORLD, 0);
 
     } else {
-            long long i[5], k, p, CH_LEN_POT[TAM_MAX+1], QTD_POSSIBILIDADES;
+            long long i[TAM_MAX+1], k, p, CH_LEN_POT[TAM_MAX+1], QTD_POSSIBILIDADES;
 
             for ( TAM_SENHA = 1; !achou && TAM_SENHA <= TAM_MAX; ++TAM_SENHA )
             {
